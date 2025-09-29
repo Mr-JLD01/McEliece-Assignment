@@ -1,1 +1,1 @@
-# McEliece-Assignment
+# McEliece-Workshop
