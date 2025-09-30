@@ -6,7 +6,7 @@ import numpy as np
 
 from Cryptosystem import McEliece
 
-with open('example_key.json') as f:
+with open('key.json') as f:
    keys = json.load(f)
    public_key = (np.array(keys["G"]).astype(int), keys["t"])
    private_key = (np.array(keys["S"]).astype(int), np.array(keys["P"]).astype(int), np.array(keys["H"]).astype(int))
@@ -60,7 +60,7 @@ class TestMcEliece(unittest.TestCase):
 
 
     def test_encrypt(self):
-        test_messages = ["Hi", "To" "Coding is fun?"]
+        test_messages = ["H", "To" "Coding is fun?"]
 
         for message in test_messages:
             ciphertext = McEliece.encrypt(message, public_key)
@@ -69,13 +69,13 @@ class TestMcEliece(unittest.TestCase):
             self.assertNotEqual(ciphertext, ciphertext2)
 
     def test_full_without_key_gen(self):
-        test_messages = ["Ey", "Po" "Arbitrarily long message."]
+        test_messages = ["E", "Po" "Arbitrarily long message."]
 
         for message in range(test_messages):
             self.assertEqual(message, McEliece.decrypt(McEliece.encrypt(message, public_key), private_key))
 
     def test_full_with_key_gen(self):
-        test_messages = ["Pi", "Be" "My system fully works!"]
+        test_messages = ["P", "Be" "My system fully works!"]
 
         for message in range(test_messages):
             (public, private) = McEliece.key_gen()
