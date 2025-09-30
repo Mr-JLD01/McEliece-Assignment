@@ -6,7 +6,7 @@ import numpy as np
 
 from Cryptosystem import McEliece
 
-with open('key.json') as f:
+with open('example_key.json') as f:
    keys = json.load(f)
    public_key = (np.array(keys["G"]).astype(int), keys["t"])
    private_key = (np.array(keys["S"]).astype(int), np.array(keys["P"]).astype(int), np.array(keys["H"]).astype(int))
