@@ -132,3 +132,8 @@ class McEliece(CryptoSystem):
 		# convert m into an ascii string
 
 		raise NotImplementedError
+
+
+if __name__ == "__main__":
+	# Debug and small tests here
+	pass
